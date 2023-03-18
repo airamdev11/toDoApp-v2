@@ -15,10 +15,16 @@ app.use(express.static("public"));
 
 var notesArray = [];
 
-mongoose.connect('mongodb://127.0.0.1:27017/toDoApp', {
+/*mongoose.connect('mongodb://127.0.0.1:27017/toDoApp', {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+})*/
+
+mongoose.connect('mongodb+srv://admin:admin@devcluster.wj4qjt3.mongodb.net/?retryWrites=true&w=majority', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 })
+
     .then(() => console.log('MongoDB connected'))
     .catch(err => console.log('MongoDB connection error:', err));
 
