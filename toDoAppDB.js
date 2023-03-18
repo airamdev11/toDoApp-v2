@@ -5,16 +5,20 @@ const mongoose = require("mongoose");
         type:String,
         required:true
     },
-    isWork:{
-        type:Boolean,
-        required:true
-    },
-    list:{
-        type:String,
-        required:true
-    }
  });
 
  const Note = mongoose.model("Note", noteSchema);
 
- module.exports = Note;
+
+
+
+const listSchema = new mongoose.Schema({
+   name: {
+       type:String
+   },
+   items:[noteSchema]
+});
+
+const List = mongoose.model("List", listSchema);
+
+module.exports = {Note, List};
